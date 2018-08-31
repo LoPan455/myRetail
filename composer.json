@@ -1,0 +1,9 @@
+{
+  "require": {
+    "monolog/monolog": "1.0.*",
+    "mongodb/mongodb": "*"
+  },
+  "autoload": {
+    "psr-4": {"MyRetail\\": "src/"}
+  }
+}

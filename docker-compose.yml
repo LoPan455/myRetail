@@ -1,0 +1,15 @@
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    build:
+      context: ./environment/site
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "4000:80"
+    networks:
+      - webnet
+networks:
+  webnet:

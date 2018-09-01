@@ -11,5 +11,15 @@ services:
       - "4000:80"
     networks:
       - webnet
+  database:
+    build:
+      context: ./environment/database
+      dockerfile: Dockerfile
+    networks:
+      - webnet
+    env_file:
+      - environment/database/secret.env
+    ports:
+      - "27017:27017"
 networks:
   webnet:

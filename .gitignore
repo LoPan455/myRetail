@@ -19,6 +19,17 @@ Icon
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
+# Secrets
+*.env
+
+# Vendor
+vendor
+
+#IDE files
+.ideagit
+
+
+
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop

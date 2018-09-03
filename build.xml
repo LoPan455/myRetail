@@ -1,36 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project name="myRetail" default="build">
-
-    <!-- ============================================  -->
-    <!-- Target: prepare                               -->
-    <!-- ============================================  -->
-    <!--<target name="prepare">-->
-        <!--<echo msg="Making directory ./build" />-->
-        <!--<mkdir dir="./build" />-->
-    <!--</target>-->
-
-    <!-- ============================================  -->
-    <!-- Target: build                                 -->
-    <!-- ============================================  -->
     <target name="build">
         <echo msg="Installing Composer packages" />
         <exec command="docker exec -t myretail_web_1 composer install"/>
-
+        <echo msg="Seeding Database"/>
+        <exec command="docker exec -t my_retail_database_1 mongoimport --db myretail --collection products --file init.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin"/>
     </target>
-
-    <!-- ============================================  -->
-    <!-- (DEFAULT)  Target: dist                       -->
-    <!-- ============================================  -->
-    <!--<target name="dist" depends="build">-->
-        <!--&lt;!&ndash;<echo msg="Creating archive..." />&ndash;&gt;-->
-
-        <!--&lt;!&ndash;<tar destfile="./build/build.tar.gz" compression="gzip">&ndash;&gt;-->
-            <!--&lt;!&ndash;<fileset dir="./build">&ndash;&gt;-->
-                <!--&lt;!&ndash;<include name="*" />&ndash;&gt;-->
-            <!--&lt;!&ndash;</fileset>&ndash;&gt;-->
-        <!--&lt;!&ndash;</tar>&ndash;&gt;-->
-
-        <!--&lt;!&ndash;<echo msg="Files copied and compressed in build directory OK!" />&ndash;&gt;-->
-    <!--</target>-->
 </project>

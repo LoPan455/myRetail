@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import {ModuleWithProviders} from "@angular/core";
+import {RouterModule, Routes} from '@angular/router';
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  exports: [ RouterModule ],
-  declarations: []
-})
-export class AppRoutingModule { }
+import {ProductDetailComponent} from "./product-detail/product-detail.component";
+
+const routes: Routes = [
+  {path: 'details', component: ProductDetailComponent}
+];
+
+export const appRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes);
+

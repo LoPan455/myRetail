@@ -1,7 +1,7 @@
 <nav>
   <ul>
     <li>
-      <p>15117729</p>
+      <a routerLink="/details">15117729</a>
     </li>
     <li>
       <p>16483589</p>
@@ -15,6 +15,11 @@
     <li>
       <p>15643793</p>
     </li>
+  </ul>
+
+  <H2>Products List Repeat</H2>
+  <ul>
+    <li *ngFor="let product of products"></li>
   </ul>
 </nav>
 

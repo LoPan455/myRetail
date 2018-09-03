@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { AppRoutingModule } from './/app-routing.module';
-import {RouterModule} from "@angular/router";
+import { appRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {RouterModule} from "@angular/router";
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([])
+    appRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,10 +8,12 @@
 
 require_once('bootstrap.php');
 
-use MyRetail\MyClass;
 use MyRetail\Services\ProductService;
+use MyRetail\Services\PricingService;
 
-$productService = new ProductService();
+
+$pricingService = new PricingService();
+$productService = new ProductService($pricingService);
 
 $products = $productService->getProducts();
 

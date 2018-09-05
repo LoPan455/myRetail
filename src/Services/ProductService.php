@@ -19,19 +19,29 @@ class ProductService
 {
 
     /**
-     * @var
+     * @var DatabaseUtility
      */
     private $database;
 
     /**
-     * ProductService constructor.
+     * @var PricingService
      */
-    public function __construct()
+    private $pricingService;
+
+    /**
+     * ProductService constructor.
+     * @param $pricingService \MyRetail\Services\PricingService
+     */
+    public function __construct($pricingService)
     {
         $this->database = DatabaseUtility::getDbInstance();
+        $this->pricingService = $pricingService;
 
     }
 
+    /**
+     * @return \MongoDB\Model\DatabaseInfoIterator
+     */
     public function getDatabases()
     {
         return $this->database->listDatabases();
@@ -62,25 +72,30 @@ class ProductService
      */
     public function getProduct($id)
     {
+        // configure the filter
         $product = null;
         $findFilter = ['id' => $id];
 
+        // fetch the product
         $productBSON = $this->database->getProductsCollection()->findOne($findFilter);
 
+        // instantiate a DTO to send back to the endpoint script
         $productDto = new ProductDto();
         $productDto->id = $productBSON->id;
         $productDto->name = $productBSON->name;
+        $productDto->price = $this->getPrice($id);
 
         return $productDto;
     }
 
     /**
+     *  Fetches the price for a given product ID
      * @param $id
      * @return mixed
      */
     public function getPrice($id)
     {
-        return $price;
+        return $this->pricingService->getPrice($id);
     }
 
 }

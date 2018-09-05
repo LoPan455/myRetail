@@ -11,12 +11,11 @@ require_once('bootstrap.php');
 use MyRetail\MyClass;
 use MyRetail\Services\ProductService;
 
-$variable1 = 'Hello World';
-
-
-$myClass = new MyClass();
 $productService = new ProductService();
+
 $products = $productService->getProducts();
+
 $return = json_encode($products);
+
 print $return;
 

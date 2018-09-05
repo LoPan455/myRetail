@@ -9,10 +9,16 @@ require_once('bootstrap.php');
 
 use MyRetail\MyClass;
 use MyRetail\Services\ProductService;
+use MyRetail\Services\PricingService;
 
-$productService = new ProductService();
+$pricingService = new PricingService();
+$productService = new ProductService($pricingService);
 
-$product = $productService->getProduct('123456789');
+
+
+$productId = $_GET['productId'];
+
+$product = $productService->getProduct($productId);
 
 $return =  json_encode($product);
 

@@ -56,4 +56,31 @@ class ProductService
         return $productsArray;
     }
 
+    /**
+     * @param $id
+     * @return ProductDto
+     */
+    public function getProduct($id)
+    {
+        $product = null;
+        $findFilter = ['id' => $id];
+
+        $productBSON = $this->database->getProductsCollection()->findOne($findFilter);
+
+        $productDto = new ProductDto();
+        $productDto->id = $productBSON->id;
+        $productDto->name = $productBSON->name;
+
+        return $productDto;
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function getPrice($id)
+    {
+        return $price;
+    }
+
 }

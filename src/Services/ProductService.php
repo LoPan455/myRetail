@@ -48,6 +48,8 @@ class ProductService
     }
 
     /**
+     *  Gets all products in the database
+     *
      * @return array
      */
     public function getProducts()
@@ -67,6 +69,7 @@ class ProductService
     }
 
     /**
+     *  Gets a single product in the DB by product ID
      * @param $id
      * @return ProductDto
      */

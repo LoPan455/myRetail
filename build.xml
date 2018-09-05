@@ -2,9 +2,12 @@
 
 <project name="myRetail" default="build">
     <target name="build">
-        <echo msg="Installing Composer packages" />
+        <echo msg="Installing Composer packages"/>
         <exec command="docker exec -t myretail_web_1 composer install"/>
+    </target>
+    <target name="seed database">
         <echo msg="Seeding Database"/>
-        <exec command="docker exec -t my_retail_database_1 mongoimport --db myretail --collection products --file init.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin"/>
+        <exec command="docker exec -t myretail_database_1 mongoimport --db myretail --collection products --file products.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin"/>
+        <exec command="docker exec -t myretail_database_1 mongoimport --db myretail --collection prices --file pricing.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin"/>
     </target>
 </project>

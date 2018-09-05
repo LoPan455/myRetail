@@ -1,6 +1,7 @@
 FROM mongo:3.2
 
-COPY init.json /init.json
+COPY products.json /products.json
+COPY pricing.json /pricing.json
 
 
 

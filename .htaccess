@@ -1,0 +1,6 @@
+Options +FollowSymLinks -MultiViews -Indexes
+
+RewriteEngine On
+
+RewriteRule ^products$ bin/get-products.php
+RewriteRule ^product/([^/\.]+)$ bin/get-product.php?productId=$1

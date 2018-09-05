@@ -9,10 +9,27 @@
 namespace MyRetail\Database;
 
 use MongoDB\Client;
+use MongoDB\Collection;
 
 
 class DatabaseUtility
 {
+    /**
+     *
+     */
+    const MY_RETAIL_DB = 'myretail';
+
+
+    /**
+     *
+     */
+    const PRODUCTS_COLLECTION = 'products';
+
+    /**
+     *
+     */
+    const PRICING_COLLECTION = 'prices';
+
     /**
      * @var
      */
@@ -39,11 +56,23 @@ class DatabaseUtility
     private $dbUser = 'root';
 
     /**
+     * @var Collection
+     */
+    private $productsCollection;
+
+    /**
+     * @var
+     */
+    private $pricingCollection;
+
+    /**
      * DatabaseUtility constructor.
      */
     private function __construct()
     {
         $this->connection = new Client("mongodb://{$this->dbUser}:{$this->dbPassowrd}@{$this->dbUrl}");
+        $this->productsCollection = $this->connection->selectCollection(self::MY_RETAIL_DB, self::PRODUCTS_COLLECTION);
+        $this->pricingCollection = $this->connection->selectCollection(self::MY_RETAIL_DB, self::PRICING_COLLECTION);
     }
 
     /**
@@ -75,8 +104,19 @@ class DatabaseUtility
         return $this->connection->listDatabases();
     }
 
-    public function listCollections()
+    /**
+     * @return Collection
+     */
+    public function getProductsCollection()
     {
+        return $this->productsCollection;
+    }
 
+    /**
+     * @return Collection
+     */
+    public function getPricingCollection()
+    {
+        return $this->pricingCollection;
     }
 }

@@ -12,13 +12,11 @@ use MyRetail\MyClass;
 use MyRetail\Services\ProductService;
 
 $variable1 = 'Hello World';
+$return = array();
 
 $myClass = new MyClass();
 $productService = new ProductService();
-//$products = $productService->getProducts();
-$dbs = $productService->getDatabases();
+$products = $productService->getProducts();
+json_encode($products);
+print $products;
 
-echo $myClass->getTitle() . PHP_EOL;
-echo $variable1 . PHP_EOL;
-//var_dump($products);
-var_dump($dbs);

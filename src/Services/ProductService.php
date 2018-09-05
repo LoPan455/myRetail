@@ -9,6 +9,7 @@
 namespace MyRetail\Services;
 
 use MyRetail\Database\DatabaseUtility;
+use MyRetail\Dto\ProductDto;
 
 /**
  * Class ProductService
@@ -41,9 +42,18 @@ class ProductService
      */
     public function getProducts()
     {
-        $products = ['product1', 'product2', 'product3'];
+        $productsArray = array();
 
-        return $products;
+        $productsBSON = $this->database->getProductsCollection()->find()->toArray();
+
+        foreach ($productsBSON as $product) {
+            $productDto = new ProductDto();
+            $productDto->id = $product->id;
+            $productDto->name = $product->name;
+            $productsArray[] = $productDto;
+        }
+
+        return $productsArray;
     }
 
 }

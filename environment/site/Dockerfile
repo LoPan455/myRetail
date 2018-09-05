@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install git zip unzip libcurl4-openssl-dev pkg-con
 
 RUN pecl install mongodb xdebug && docker-php-ext-enable xdebug
 
+RUN a2enmod rewrite
+
 WORKDIR /root
 
 RUN curl -sS https://getcomposer.org/installer -o  composer-setup.php

@@ -1,0 +1,5 @@
+Options +FollowSymLinks -MultiViews -Indexes
+
+RewriteEngine On
+
+RewriteRule ^products$ bin/endpoint.php

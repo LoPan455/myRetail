@@ -62,6 +62,7 @@ class ProductService
             $productDto = new ProductDto();
             $productDto->id = $product->id;
             $productDto->name = $product->name;
+            $productDto->price = $this->getPrice($product->id);
             $productsArray[] = $productDto;
         }
 

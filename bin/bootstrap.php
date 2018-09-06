@@ -6,5 +6,5 @@
  * Time: 6:28 AM
  */
 
-require_once ('../vendor/autoload.php');
-session_start();
+require __DIR__ . '/../vendor/autoload.php';
+//session_start();

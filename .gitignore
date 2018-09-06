@@ -25,6 +25,9 @@ Icon
 # Vendor
 vendor
 
+my-retail-app/node_modules
+
+
 #IDE files
 .idea/*
 
@@ -35,3 +38,4 @@ vendor
 Network Trash Folder
 Temporary Items
 .apdisk
+/my-retail-app/node_modules/

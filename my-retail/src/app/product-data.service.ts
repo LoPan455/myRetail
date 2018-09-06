@@ -10,6 +10,6 @@ export class ProductDataService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get('https://jsonplaceholder.typicode.com/users')
+    return this.http.get('http://localhost:4000/products');
   }
 }

@@ -8,7 +8,34 @@ Node installed on the local machine
 
 To install myRetail on a local PC running macOS or Linux:
 
-From a terminal prompt close this repo and move into the directory
+From a terminal prompt close this repo and move into the directory:
+
+`git clone https://github.com/LoPan455/myRetail.git`
+`cd myRetail`
+
+Build the Docker images:
+
+`docker-compose build`
+
+Run the Docker containers (`web` and `database`):
+`docker-compose up`
+
+Seed the data with the following commands:
+`docker exec -t myretail_database_1 mongoimport --db myretail --collection products --file products.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin`
+
+`docker exec -t myretail_database_1 mongoimport --db myretail --collection prices --file pricing.json --type json --jsonArray -u root -p password2841 --authenticationDatabase admin`
+
+Once the install is done you can test the REST service by starting a terminal session into the `web` container:
+
+`docker-exec -ti myretail_web_1 bash`
+
+Once inside the container, a cURL request to the following URLs will return the required data:
+
+`curl http://localhost/products` -> will list all products in the `Products` collection
+`curl htto://localhost/product/<id>` -> will retrieve product and price data for a single product.
+
+
+
 
 Challenge:
 

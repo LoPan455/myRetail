@@ -26,7 +26,8 @@ Icon
 vendor
 
 #IDE files
-.idea
+.idea/*
+
 
 # Directories potentially created on remote AFP share
 .AppleDB

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-retail-app": {
+    "my-retail": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-retail-app",
+            "outputPath": "dist/my-retail",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-retail-app:build"
+            "browserTarget": "my-retail:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "my-retail-app:build:production"
+              "browserTarget": "my-retail:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-retail-app:build"
+            "browserTarget": "my-retail:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "my-retail-app-e2e": {
+    "my-retail-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "my-retail-app:serve"
+            "devServerTarget": "my-retail:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "my-retail-app:serve:production"
+              "devServerTarget": "my-retail:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "my-retail-app"
+  "defaultProject": "my-retail"
 }

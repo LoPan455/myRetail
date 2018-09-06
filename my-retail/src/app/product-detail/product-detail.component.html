@@ -1,0 +1,12 @@
+<h1>Users</h1>
+
+<ul>
+  <li *ngFor="let product of products$">
+    <a routerLink="/details/{{product.id}}">{{ product.name }}</a>
+
+    <ul>
+      <li>{{ product.email }}</li>
+      <li><a href="http://{{ product.website }}">{{ product.website }}</a></li>
+    </ul>
+  </li>
+</ul>

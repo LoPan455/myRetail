@@ -1,0 +1,28 @@
+nav {
+  background: rgb(204, 0, 0);
+  height: 100%;
+
+  h1 {
+    color: #fff;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+
+      a {
+        color: #fff;
+        padding: 20px;
+        display: block;
+      }
+
+      .activated {
+        background-color: #00a8ff;
+      }
+    }
+  }
+
+}
